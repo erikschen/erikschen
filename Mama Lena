@@ -1,0 +1,196 @@
+/*
+Run this model in Java
+*/
+package com.github.models.inference.samples;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.azure.ai.inference.ChatCompletionsClient;
+import com.azure.ai.inference.ChatCompletionsClientBuilder;
+import com.azure.ai.inference.models.ChatCompletions;
+import com.azure.ai.inference.models.ChatCompletionsOptions;
+import com.azure.ai.inference.models.ChatRequestMessage;
+import com.azure.ai.inference.models.ChatRequestSystemMessage;
+import com.azure.ai.inference.models.ChatRequestUserMessage;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.Configuration;
+
+public final class BasicChatSample {
+    public static void main(String[] args) {
+        // To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings. 
+        // Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+        String key = Configuration.getGlobalConfiguration().get("GITHUB_TOKEN");
+        String endpoint = "https://models.inference.ai.azure.com";
+        String model = "gpt-4o";
+
+        ChatCompletionsClient client = new ChatCompletionsClientBuilder()
+            .credential(new AzureKeyCredential(key))
+            .endpoint(endpoint)
+            .buildClient();
+
+        List<ChatRequestMessage> chatMessages = Arrays.asList(
+            new ChatRequestSystemMessage(""),
+            new ChatRequestUserMessage("Can you explain the basics of machine learning?")
+        );
+
+        ChatCompletionsOptions chatCompletionsOptions = new ChatCompletionsOptions(chatMessages);
+        chatCompletionsOptions.setModel(model);
+
+        ChatCompletions completions = client.complete(chatCompletionsOptions);
+
+        System.out.printf("%s.%n", completions.getChoice().getMessage().getContent());
+    }
+}
+curl -X POST "https://models.inference.ai.azure.com/chat/completions" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -d '{
+        "messages": [
+            {
+                "role": "system",
+                "content": ""
+            },
+            {
+                "role": "user",
+                "content": "Can you explain the basics of machine learning?"
+            }
+        ],
+        "model": "gpt-4o",
+        "temperature": 1,
+        "max_tokens": 4096,
+        "top_p": 1
+    }'curl -X POST "https://models.inference.ai.azure.com/chat/completions" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -d '{
+        "messages": [
+            {
+                "role": "system",
+                "content": ""
+            },
+            {
+                "role": "user",
+                "content": "Can you explain the basics of machine learning?"
+            }
+        ],
+        "model": "gpt-4o",
+        "temperature": 1,
+        "max_tokens": 4096,
+        "top_p": 1
+    }'curl -X POST "https://models.inference.ai.azure.com/chat/completions" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -d '{
+        "messages": [
+            {
+                "role": "system",
+                "content": ""
+            },
+            {
+                "role": "user",
+                "content": "Can you explain the basics of machine learning?"
+            }
+        ],
+        "model": "gpt-4o",
+        "temperature": 1,
+        "max_tokens": 4096,
+        "top_p": 1
+    }'"""Run this model in Python
+
+> pip install openai
+"""
+import os
+from openai import OpenAI
+
+# To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings. 
+# Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+client = OpenAI(
+    base_url="https://models.inference.ai.azure.com",
+    api_key=os.environ["GITHUB_TOKEN"],
+)
+
+response = client.chat.completions.create(
+    messages=[
+        {
+            "role": "system",
+            "content": "",
+        },
+        {
+            "role": "user",
+            "content": "What is the capital of France?",
+        }
+    ],
+    model="gpt-4o",
+    temperature=1,
+    max_tokens=4096,
+    top_p=1
+)
+
+print(response.choices[0].message.content)/*
+Run this model in Javascript
+
+> npm install openai
+*/
+import OpenAI from "openai";
+
+// To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings. 
+// Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+const token = process.env["GITHUB_TOKEN"];
+
+export async function main() {
+
+  const client = new OpenAI({
+    baseURL: "https://models.inference.ai.azure.com",
+    apiKey: token
+  });
+
+  const response = await client.chat.completions.create({
+    messages: [
+      { role:"system", content: "" },
+      { role:"user", content: "What is the capital of France?" }
+    ],
+    model: "gpt-4o",
+    temperature: 1,
+    max_tokens: 4096,
+    top_p: 1
+  });
+
+  console.log(response.choices[0].message.content);
+}
+
+main().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});/*
+Run this model in C#.
+
+> dotnet add package OpenAI
+*/
+using OpenAI;
+using OpenAI.Chat;
+
+// To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings. 
+// Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+var credential = System.Environment.GetEnvironmentVariable("GITHUB_TOKEN");
+
+var openAIOptions = new OpenAIClientOptions()
+{
+    Endpoint=new Uri("https://models.inference.ai.azure.com")
+};
+
+var client = new ChatClient("gpt-4o", credential, openAIOptions);
+
+List<ChatMessage> messages = new List<ChatMessage>()
+{
+    new SystemChatMessage(""),
+    new UserChatMessage("Can you explain the basics of machine learning?"),
+};
+
+var requestOptions = new ChatCompletionOptions()
+{
+    Temperature = 1,
+    MaxTokens = 4096,
+};
+
+var response = client.CompleteChat(messages, requestOptions);
+System.Console.WriteLine(response.Value.Content[0].Text);
