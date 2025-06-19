@@ -1,0 +1,109 @@
+{
+  "treatment_store_button_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "button_label@common_buttons.new_ui_binding_button_label": {
+          "layer": 50
+        }
+      },
+      {
+        "AddOns": {
+          "type": "image",
+          "texture": "textures/ui/AddOns_sp",
+          "size": [ 83, 17 ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "offset": [ 16, -4 ],
+          "layer": 25
+        }
+      },
+      
+      {
+        "default01-sheet": {
+          "type": "image",
+          "texture": "textures/ui/default01-sheet",
+          "size": [ 22, 36 ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ -6, 6 ],
+          "layer": 8,
+          "ignored": "(not $default_state)",
+          "uv_size": [ 44, 72 ],
+          "uv": "@start.Animation",
+          "disable_anim_fast_forward": true
+        }
+      },
+      {
+        "default02-sheet": {
+          "type": "image",
+          "texture": "textures/ui/default02-sheet",
+          "size": [ 22, 36 ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 13, 6 ],
+          "layer": 9,
+          "ignored": "(not $default_state)",
+          "uv_size": [ 44, 72 ],
+          "uv": "@start.Animation",
+          "disable_anim_fast_forward": true
+        }
+      },
+      {
+        "default03-sheet": {
+          "type": "image",
+          "texture": "textures/ui/default03-sheet",
+          "size": [ 22, 36 ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 32, 6 ],
+          "layer": 10,
+          "ignored": "(not $default_state)",
+          "uv_size": [ 44, 72 ],
+          "uv": "@start.Animation",
+          "disable_anim_fast_forward": true
+        }
+      },
+      {
+        "default04-sheet": {
+          "type": "image",
+          "texture": "textures/ui/default04-sheet",
+          "size": [ 22, 36 ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 51, 6 ],
+          "layer": 20,
+          "ignored": "(not $default_state)",
+          "uv_size": [ 44, 72 ],
+          "uv": "@start.Animation",
+          "disable_anim_fast_forward": true
+        }
+      },
+      {
+        "default05-sheet": {
+          "type": "image",
+          "texture": "textures/ui/default05-sheet",
+          "size": [ 22, 36 ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 70, 6 ],
+          "layer": 20,
+          "ignored": "(not $default_state)",
+          "uv_size": [ 44, 72 ],
+          "uv": "@start.Animation",
+          "disable_anim_fast_forward": true
+        }
+      },
+      {
+        "default06-sheet": {
+          "type": "image",
+          "texture": "textures/ui/default06-sheet",
+          "size": [ 22, 36 ],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 89, 6 ],
+          "layer": 20,
+          "ignored": "(not $default_state)",
+          "uv_size": [ 44, 72 ],
+          "uv": "@start.Animation",
+          "disable_anim_fast_forward": true=#
