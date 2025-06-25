@@ -1,4 +1,4 @@
-.## Hi there Erik💬 Ask me about😄 
+https://stand-with-ukraine.pp.ua/
 
 
 <!--
