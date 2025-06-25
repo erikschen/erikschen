@@ -1,4 +1,4 @@
-        https://stand-with-ukraine.pp.ua/.=#
+https://stand-with-ukraine.pp.ua/
 
 
 <!--
